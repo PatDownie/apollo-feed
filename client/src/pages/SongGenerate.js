@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function SongGenerate() {
-  const [cat, setCat] = useState({});
+  const [song, setSong] = useState({});
   const [form, setForm] = useState({});
 
   const { id } = useParams();
@@ -13,13 +13,13 @@ export default function SongGenerate() {
   }, []);
 
   async function getSong() {
-    const API = `http://localhost:8080/song?_id=${id}`;
+    const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
     const res = await axios.get(API);
     setCat(res.data[0]);
   }
 
   async function postSong() {
-    const API = "http://localhost:8080/song";
+    const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
     const res = await axios.post(API, form);
     console.log(res.data);
   }
@@ -28,8 +28,8 @@ export default function SongGenerate() {
     <div>
       <Header />
       <div className="songGenerate">
-        <h2>{song.title}</h2>
-        <img className="songImage" src={song.image} alt={song.title} />
+        <h2>{song.full_title}</h2>
+        <img className="songImage" src={song.song_art_image_thumbnail_url} alt={song.full_title} />
         <p>{beast.description}</p>
       </div>
       <div className="songButton">

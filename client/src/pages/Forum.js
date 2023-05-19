@@ -15,7 +15,7 @@ export default function Forum() {
   }, []);
 
   async function getSong() {
-    const API = `http://localhost:8080/song?_id=${id}`;
+    const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
     const res = await axios.get(API);
     setSong(res.data[0]);
     setForm({

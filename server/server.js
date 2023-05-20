@@ -1,10 +1,13 @@
 const express = require("express");
 const cors = require("cors");
+const mongoose = require("mongoose");
 const { default: axios } = require("axios");
 require("dotenv").config();
 const PORT = process.env.PORT || 8081;
 const app = express();
 app.use(cors());
+
+mongoose.connect(process.env.DATABASE_URL);
 
 app.get("/", (request, response) => {
   response.json("This is the root route of the Apollo feed backend");
@@ -20,7 +23,13 @@ app.get("/song", async (request, response) => {
   try {
     let API = `https://api.genius.com/songs/${songID}?access_token=${process.env.GENIUS_API_ACCESS_TOKEN}`;
     const randomSong = await axios.get(API);
-    response.json({ title: randomSong.data.response.song.title, song_id: randomSong.data.response.song.id });
+    response.json({
+      song_id: randomSong.data.response.song.id,
+      title: randomSong.data.response.song.title,
+      artist: randomSong.data.response.song.artist_names,
+      release_date: randomSong.data.response.song.release_date,
+      album_art: randomSong.data.response.song.song_art_image_url,
+    });
   } catch (error) {
     response.json(`song id ${songID} does not exist`);
   }

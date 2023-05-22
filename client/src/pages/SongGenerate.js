@@ -14,10 +14,6 @@ export default function SongGenerate() {
     forum_post: "",
   });
 
-  // useEffect(() => {
-  //   getSong();
-  // }, []);
-
   async function getSong() {
     const API = "http://localhost:8081/song";
     const res = await axios.get(API);

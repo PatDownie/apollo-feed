@@ -13,13 +13,14 @@ export default function Forum() {
   useEffect(() => {
     getSong();
   }, []);
-
+  // will this work?!
+  // get song or get form data from seperate, with connection to songid
   async function getSong() {
     const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
     const res = await axios.get(API);
     setSong(res.data[0]);
     setForm({
-      title: res.data[0].title,
+      title: res.data[0].full_title,
       desciption: res.data[0].description,
       status: res.data[0].status,
     });
@@ -29,8 +30,8 @@ export default function Forum() {
     <div>
       <Header />
       <h2>Forum</h2>
-      <img src="https://placehold.co/100" />
-      <p>{song.title}</p>
+      <img src={song.song_art_image_thumbnail_url} />
+      <p>{song.full_title}</p>
       <p>{formid.description}</p>
       <Footer />
     </div>

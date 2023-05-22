@@ -3,46 +3,59 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 export default function SongGenerate() {
-  const [song, setSong] = useState({});
-  const [form, setForm] = useState({});
+  const [song, setSong] = useState([]);
+  const [form, setForm] = useState({
+    song_id: NaN,
+    title: "",
+    artist: "",
+    release_date: "",
+    album_art: "",
+    poster_name: "",
+    forum_post: "",
+  });
 
-  const { id } = useParams();
-
-  useEffect(() => {
-    getCat();
-  }, []);
+  // useEffect(() => {
+  //   getSong();
+  // }, []);
 
   async function getSong() {
-    const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
+    const API = "http://localhost:8081/song";
     const res = await axios.get(API);
-    setCat(res.data[0]);
+    setSong(res.data);
+    setForm({ ...form, song_id: res.data.song_id, title: res.data.title, artist: res.data.artist, release_date: res.data.release_date, album_art: res.data.album_art });
+    console.log(res.data);
   }
 
-  async function postSong() {
-    const API = `http://api.genius.com/songs/${id}access_token=${DATABASE_API_KEY}`;
+  async function postForum() {
+    const API = "http://localhost:8081/forum";
     const res = await axios.post(API, form);
     console.log(res.data);
   }
 
+  function handleChange(event) {
+    setForm({ ...form, [event.target.name]: event.target.value });
+    console.log(form);
+  }
+
   return (
     <div>
-      <Header />
       <div className="songGenerate">
-        <h2>{song.full_title}</h2>
-        <img className="songImage" src={song.song_art_image_thumbnail_url} alt={song.full_title} />
-        <p>{beast.description}</p>
+        <h2>{song.title}</h2>
+        <p>{song.artist}</p>
+        <p>{song.release_date}</p>
+        <img className="songImage" src={song.album_art} alt={song.title} />
       </div>
       <div className="songButton">
-        <p>Random Button</p>
+        <button onClick={getSong}>Random Button</button>
       </div>
       <div className="formData">
-        <h3>Comments</h3>
-        <p>{formid.description}</p>
-        <form onSubmit={postSong}>
-          <input name="Comment" placeholder="What did you think of this song?" />
+        <h3>Review</h3>
+        <form onSubmit={postForum}>
+          <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} />
+          <input name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} />
+          <input type="submit" />
         </form>
       </div>
-      <Footer />
     </div>
   );
 }

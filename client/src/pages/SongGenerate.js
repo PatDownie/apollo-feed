@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import "./SongGenerate.css";
 
 export default function SongGenerate() {
   const [song, setSong] = useState([]);
@@ -35,22 +36,25 @@ export default function SongGenerate() {
 
   return (
     <div>
-      <div className="songGenerate">
-        <h2>{song.title}</h2>
-        <p>{song.artist}</p>
-        <p>{song.release_date}</p>
-        <img className="songImage" src={song.album_art} alt={song.title} />
+      <div className="song-container">
+        <img src={song.album_art} alt={song.title} />
+        <div className="songInfo">
+          <h2>{song.title}</h2>
+          <p>By, {song.artist}</p>
+          <p>Released: {song.release_date}</p>
+        </div>
       </div>
-      <div className="songButton">
-        <button onClick={getSong}>Random Button</button>
-      </div>
-      <div className="formData">
-        <h3>Review</h3>
+      <div className="form-container">
         <form onSubmit={postForum}>
-          <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} />
-          <input name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} />
-          <input type="submit" />
+          <textarea name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} maxlength="700" rows="5" />
+          <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} maxlength="50" />
+          <input className="button" type="submit" />
         </form>
+      </div>
+      <div className="flex-container">
+        <button className="button" onClick={getSong}>
+          Show me another Song
+        </button>
       </div>
     </div>
   );

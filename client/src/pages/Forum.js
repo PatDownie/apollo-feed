@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./Forum.css";
 
 export default function Forum() {
   const [forum, setForum] = useState([]);
@@ -17,16 +18,21 @@ export default function Forum() {
   }
 
   return (
-    <div>
+    <div className="whole-forum">
       {forum.map((forumpost) => {
         return (
-          <div key={forumpost._id}>
-            <h2>{forumpost.title}</h2>
-            <p>{forumpost.artist}</p>
-            <p>{forumpost.release_date}</p>
-            <img src={forumpost.album_art} alt={forumpost.title} />
-            <p>{forumpost.post_name}</p>
-            <p>{forumpost.forum_post}</p>
+          <div className="forum-post" key={forumpost._id}>
+            <div className="post-header">
+              <img src={forumpost.album_art} alt={forumpost.title} />
+              <div className="post-header-text">
+                <p>
+                  <span className="username">{forumpost.poster_name}</span> has listened to {forumpost.title} by {forumpost.artist}
+                </p>
+              </div>
+            </div>
+            <div className="post-body">
+              <p>"{forumpost.forum_post}"</p>
+            </div>
           </div>
         );
       })}

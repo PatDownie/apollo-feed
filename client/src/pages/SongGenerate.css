@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap");
+
+.song-container {
+  display: flex;
+  margin: 15px;
+  background-color: #ced3dc;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.song-container img {
+  width: 40%;
+}
+
+.songInfo {
+  font-size: 1.2rem;
+  font-family: "Kanit", sans-serif;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+.form-container form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+}
+
+.form-container form * {
+  margin: 10px 0;
+}
+
+.button {
+  color: white;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 1.5rem;
+  height: 3rem;
+  width: 50%;
+  align-self: center;
+  background-color: #f1ca3b;
+}
+
+.flex-container {
+  margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,16 +1,16 @@
 import React from "react";
+import "./Home.css";
+import image from "../images/musicback.jpg";
 
 export default function Home() {
   return (
-    <div>
-      <h1>Home</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultrices quis lorem eleifend pellentesque. Curabitur accumsan, dolor vel tempor semper, elit dolor vehicula arcu, at varius risus
-        felis a tellus. Proin ornare lobortis lorem, vitae interdum odio porta venenatis. Morbi bibendum sapien vel lectus mattis rutrum. Nam sagittis in diam nec viverra. Proin sagittis nec felis nec
-        auctor. Aliquam erat volutpat. Vivamus porta, magna iaculis molestie mollis, dolor velit dignissim elit, quis pharetra lectus mauris ut neque. Ut sed lorem mollis, ullamcorper enim ac,
-        placerat sapien. Ut id quam finibus enim consectetur mollis vitae et massa. Nunc vitae eros rutrum.
-      </p>
-      <button>Show me a song!</button>
+    <div className="home-container">
+      <h1>Welcome</h1>
+      <p>Welcome to our React.js project, a random music generator that integrates seamlessly with an API and MongoDB. </p>
+      <p>Created by Patrick and Ross</p>
+      <a href="/feed">
+        <button className="button">Show me a song!</button>
+      </a>
     </div>
   );
 }

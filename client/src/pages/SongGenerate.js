@@ -23,7 +23,8 @@ export default function SongGenerate() {
     console.log(res.data);
   }
 
-  async function postForum() {
+  async function postForum(event) {
+    event.preventDefault();
     const API = "http://localhost:8081/forum";
     const res = await axios.post(API, form);
     console.log(res.data);
@@ -35,23 +36,25 @@ export default function SongGenerate() {
   }
 
   return (
-    <div>
-      <div className="song-container">
-        <img src={song.album_art} alt={song.title} />
-        <div className="songInfo">
-          <h2>{song.title}</h2>
-          <p>By, {song.artist}</p>
-          <p>Released: {song.release_date}</p>
+    <div className="feed-body-container">
+      <div className="form-and-body-container">
+        <div className="song-container">
+          <img src={song.album_art} alt={song.title} />
+          <div className="songInfo">
+            <h2>{song.title}</h2>
+            <p>By: {song.artist}</p>
+            <p>Released: {song.release_date}</p>
+          </div>
+        </div>
+        <div className="form-container">
+          <form onSubmit={postForum}>
+            <textarea name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} maxLength="700" rows="5" />
+            <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} maxLength="50" />
+            <input className="button" type="submit" />
+          </form>
         </div>
       </div>
-      <div className="form-container">
-        <form onSubmit={postForum}>
-          <textarea name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} maxlength="700" rows="5" />
-          <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} maxlength="50" />
-          <input className="button" type="submit" />
-        </form>
-      </div>
-      <div className="flex-container">
+      <div className="show-song-button-container">
         <button className="button" onClick={getSong}>
           Show me another Song
         </button>

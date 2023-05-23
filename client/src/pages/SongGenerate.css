@@ -31,13 +31,17 @@ h2 {
   margin: 0 15px;
 }
 
+textarea {
+  resize: none;
+}
+
 .form-container form * {
   margin: 10px 0;
 }
 
 .button {
-  color: white;
-  font-weight: 500;
+  color: #3a6274;
+  font-weight: 600;
   font-size: 1rem;
   border: none;
   border-radius: 1.5rem;
@@ -47,8 +51,49 @@ h2 {
   background-color: #f1ca3b;
 }
 
-.flex-container {
+.button:hover {
+  background-color: #ecd890;
+}
+
+.show-song-button-container {
   margin: 0 10px;
   display: flex;
   flex-direction: column;
+}
+
+@media (min-width: 750px) {
+  .feed-body-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .song-container {
+    width: 650px;
+    height: 320px;
+    flex-shrink: 0;
+  }
+  .song-container img {
+    width: auto;
+  }
+  .form-and-body-container {
+    display: flex;
+  }
+  .form-container {
+    width: 100%;
+  }
+  .form-container form {
+    height: 100%;
+    justify-content: center;
+  }
+  textarea {
+    height: 150px;
+  }
+  .show-song-button-container {
+    height: 100px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

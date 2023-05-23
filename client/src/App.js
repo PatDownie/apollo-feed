@@ -11,20 +11,24 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <img src={logo} />
           <div className="header-container">
-            <h1>Apollo Feed</h1>
-            <ul className="nav-container">
-              <li>
-                <NavLink to={`/home`}>Home</NavLink>
-              </li>
-              <li>
-                <NavLink to={`/feed`}>Feed</NavLink>
-              </li>
-              <li>
-                <NavLink to={`/forum`}>Forum</NavLink>
-              </li>
-            </ul>
+            <img src={logo} />
+            <div className="header-rh-container">
+              <div className="h1-container">
+                <h1>Apollo Feed</h1>
+              </div>
+              <ul className="nav-container">
+                <li>
+                  <NavLink to={`/home`}>Home</NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/feed`}>Feed</NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/forum`}>Forum</NavLink>
+                </li>
+              </ul>
+            </div>
           </div>
         </header>
         <Routes>

@@ -4,17 +4,17 @@ import SongGenerate from "./pages/SongGenerate";
 import Forum from "./pages/Forum";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
+import logo from "./images/apollo-feed-placeholder.png";
 
 export default function App() {
   return (
     <BrowserRouter>
       <div className="App">
         <header>
-          <h1>Apollo Feed</h1>
-          <h2>For all of your needs</h2>
-          <div>
-            <img src="https://placehold.co/100" />
-            <ul>
+          <img src={logo} />
+          <div className="header-container">
+            <h1>Apollo Feed</h1>
+            <ul className="nav-container">
               <li>
                 <NavLink to={`/home`}>Home</NavLink>
               </li>

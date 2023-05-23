@@ -10,6 +10,7 @@ export default function Home() {
         auctor. Aliquam erat volutpat. Vivamus porta, magna iaculis molestie mollis, dolor velit dignissim elit, quis pharetra lectus mauris ut neque. Ut sed lorem mollis, ullamcorper enim ac,
         placerat sapien. Ut id quam finibus enim consectetur mollis vitae et massa. Nunc vitae eros rutrum.
       </p>
+      <button>Show me a song!</button>
     </div>
   );
 }

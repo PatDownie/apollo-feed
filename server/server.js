@@ -28,14 +28,17 @@ app.get("/song", async (request, response) => {
     try {
       let API = `https://api.genius.com/songs/${songID}?access_token=${process.env.GENIUS_API_ACCESS_TOKEN}`;
       const randomSong = await axios.get(API);
-      response.json({
-        song_id: randomSong.data.response.song.id,
-        title: randomSong.data.response.song.title,
-        artist: randomSong.data.response.song.artist_names,
-        release_date: randomSong.data.response.song.release_date,
-        album_art: randomSong.data.response.song.song_art_image_url,
-      });
-      tryAgain = false;
+      if (randomSong.data.response.song.song_art_image_url.includes("default") || randomSong.data.response.song.apple_music_id == null || randomSong.data.response.song.release_date == null) {
+      } else {
+        response.json({
+          song_id: randomSong.data.response.song.id,
+          title: randomSong.data.response.song.title,
+          artist: randomSong.data.response.song.artist_names,
+          release_date: randomSong.data.response.song.release_date_for_display,
+          album_art: randomSong.data.response.song.song_art_image_url,
+        });
+        tryAgain = false;
+      }
     } catch (error) {}
   }
 });

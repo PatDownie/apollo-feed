@@ -19,7 +19,7 @@ export default function App() {
               </div>
               <ul className="nav-container">
                 <li>
-                  <NavLink to={`/home`}>Home</NavLink>
+                  <NavLink to={`/`}>Home</NavLink>
                 </li>
                 <li>
                   <NavLink to={`/feed`}>Feed</NavLink>
@@ -32,7 +32,7 @@ export default function App() {
           </div>
         </header>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/feed" element={<SongGenerate />} />
           <Route path="/forum" element={<Forum />} />
         </Routes>

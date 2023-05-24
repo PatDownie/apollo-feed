@@ -5,6 +5,9 @@ import Forum from "./pages/Forum";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "./images/apollo-feed-placeholder.png";
+import homeicon from "./images/home.png";
+import feedicon from "./images/feed.png";
+import forumicon from "./images/forum.png";
 
 export default function App() {
   return (
@@ -16,13 +19,19 @@ export default function App() {
             <h1>Apollo Feed</h1>
             <ul className="nav-container">
               <li>
-                <NavLink to={`/home`}>Home</NavLink>
+                <NavLink to={`/home`}>
+                  <img src={homeicon}></img>
+                </NavLink>
               </li>
               <li>
-                <NavLink to={`/feed`}>Feed</NavLink>
+                <NavLink to={`/feed`}>
+                  <img src={feedicon}></img>
+                </NavLink>
               </li>
               <li>
-                <NavLink to={`/forum`}>Forum</NavLink>
+                <NavLink to={`/forum`}>
+                  <img src={forumicon}></img>
+                </NavLink>
               </li>
             </ul>
           </div>

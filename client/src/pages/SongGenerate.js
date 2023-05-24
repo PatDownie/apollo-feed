@@ -2,9 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "./SongGenerate.css";
-import chrisclip from "../images/chrisClippy.png";
 import advert from "../images/pillsAD.png";
-import errorSong from "../audio/myError.wav";
 import chrispills from "../audio/dmePills.mp3";
 
 export default function SongGenerate() {
@@ -38,14 +36,6 @@ export default function SongGenerate() {
     console.log(form);
   }
 
-  function play() {
-    new Audio(errorSong).play();
-  }
-
-  function play1() {
-    new Audio(chrispills).play1();
-  }
-
   return (
     <div>
       <div className="song-container">
@@ -67,16 +57,11 @@ export default function SongGenerate() {
         <button className="button" onClick={getSong}>
           Show me another Song
         </button>
+        <button className="help-button">Need help?</button>
       </div>
-      <div className="helper-container">
-        <button className="help-button">Do you need help?</button>
-      </div>
-      <div className="chrisclippy">
-        <img src={chrisclip} onClick={play} />
-      </div>
-      <div className="advert-container">
+      {/* <div className="advert-container">
         <img src={advert} onClick={play1} />
-      </div>
+      </div> */}
     </div>
   );
 }

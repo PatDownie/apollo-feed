@@ -8,8 +8,18 @@ import logo from "./images/apollo-feed-placeholder.png";
 import homeicon from "./images/home.png";
 import feedicon from "./images/feed.png";
 import forumicon from "./images/forum.png";
+import chrisclip from "./images/chrisClippy.png";
+import errorSong from "./audio/myError.wav";
+import catchphrase from "./audio/uhm.mp3";
 
 export default function App() {
+  function playSong() {
+    new Audio(errorSong).play();
+  }
+  function playCatch() {
+    new Audio(catchphrase).play();
+  }
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -36,6 +46,17 @@ export default function App() {
             </ul>
           </div>
         </header>
+        <div className="helper-container">
+          <div>
+            <img src={chrisclip} />
+            <button id="btn1" onClick={playCatch}>
+              Can you help?
+            </button>
+            <button id="btn2" onClick={playSong}>
+              Give me a song
+            </button>
+          </div>
+        </div>
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/feed" element={<SongGenerate />} />

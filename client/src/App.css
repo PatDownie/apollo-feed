@@ -18,7 +18,7 @@ header {
   margin-bottom: 15px;
 }
 
-.header-container img {
+.header-container #logo {
   position: relative;
   top: 15px;
   left: 15px;
@@ -67,7 +67,6 @@ h1 {
 }
 
 .nav-container li a {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,23 +74,47 @@ h1 {
   height: 100%;
 }
 
-.nav-container li a img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-36%, -45%);
-  max-width: 100%;
-  max-height: 100%;
-}
+/* .nav-container li a img {
+
+} */
 
 .helper-container {
-  position: absolute;
+  position: fixed;
   top: 22%;
+  right: 0;
+  width: 500px;
+  height: 520px;
+  animation-name: helper-enter;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
 }
 
 .helper-container img {
-  position: fixed;
-  right: 0%;
+  animation-name: helper-float;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes helper-float {
+  0% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(10px);
+  }
+}
+
+@keyframes helper-enter {
+  0% {
+    transform: translateX(500px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
 }
 
 .helper-container button {
@@ -99,23 +122,49 @@ h1 {
   font-size: 1rem;
   border: none;
   border-radius: 1.5rem;
-  align-self: center;
   background-color: #fcf7f8;
 }
 
+#helper-button-div {
+  width: 100%;
+  position: absolute;
+  bottom: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
 #btn1 {
-  position: fixed;
-  top: 48%;
-  right: 10%;
+  background-color: #f1ca3b;
+  padding: 0.5rem;
+  border: #040404;
+  border-width: 2px;
+  border-style: dashed;
 }
 
 #btn2 {
-  position: fixed;
-  top: 50%;
-  right: 10%;
+  background-color: #f1ca3b;
+  padding: 0.5rem;
+  border: #040404;
+  border-width: 2px;
+  border-style: dashed;
+}
 
-  color: #f1ca3b;
-  font-size: 1.5rem;
+#btn1.clippy-button:hover,
+#btn2.clippy-button:hover {
+  cursor: pointer;
+  background-color: #f1df9c;
+}
+
+#help-button {
+  background-color: #f1ca3b;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+#help-button:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 750px) {
@@ -139,5 +188,4 @@ h1 {
     margin-right: 2rem;
     padding: 0;
   }
-
 }

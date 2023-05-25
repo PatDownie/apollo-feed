@@ -32,45 +32,45 @@ export default function App() {
       <div className="App">
         <header>
           <div className="header-container">
-            <img src={logo} />
+            <img id="logo" src={logo} />
             <div className="header-rh-container">
               <div className="h1-container">
                 <h1>Apollo Feed</h1>
               </div>
               <ul className="nav-container">
-               <li>
-                <NavLink to={`/home`}>
-                  <img src={homeicon} alt="home logo"></img>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to={`/feed`}>
-                  <img src={feedicon} alt="feed logo"></img>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to={`/forum`}>
-                  <img src={forumicon} alt="forum logo"></img>
-                </NavLink>
-              </li>
+                <li>
+                  <NavLink to={`/`}>
+                    <img src={homeicon} alt="home logo"></img>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/feed`}>
+                    <img src={feedicon} alt="feed logo"></img>
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to={`/forum`}>
+                    <img src={forumicon} alt="forum logo"></img>
+                  </NavLink>
+                </li>
               </ul>
             </div>
           </div>
         </header>
-        <div>
-          <button className="help-button" onClick={helpToggle}>
-            DO you Need help?
-          </button>
+        <div id="help-button" onClick={helpToggle}>
+          Do you Need help?
         </div>
         {helper && (
           <div className="helper-container">
             <img src={chrisclip} alt="chris as clippy" />
-            <button id="btn1" onClick={playCatch}>
-              Can you help?
-            </button>
-            <button id="btn2" onClick={playSong}>
-              Give me a song
-            </button>
+            <div id="helper-button-div">
+              <button id="btn1" className="clippy-button" onClick={playCatch}>
+                Can you help?
+              </button>
+              <button id="btn2" className="clippy-button" onClick={playSong}>
+                Give me a song!
+              </button>
+            </div>
           </div>
         )}
         <Routes>

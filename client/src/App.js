@@ -31,11 +31,14 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <img src={logo} alt="logo" />
           <div className="header-container">
-            <h1>Apollo Feed</h1>
-            <ul className="nav-container">
-              <li>
+            <img src={logo} />
+            <div className="header-rh-container">
+              <div className="h1-container">
+                <h1>Apollo Feed</h1>
+              </div>
+              <ul className="nav-container">
+               <li>
                 <NavLink to={`/home`}>
                   <img src={homeicon} alt="home logo"></img>
                 </NavLink>
@@ -50,7 +53,8 @@ export default function App() {
                   <img src={forumicon} alt="forum logo"></img>
                 </NavLink>
               </li>
-            </ul>
+              </ul>
+            </div>
           </div>
         </header>
         <div>
@@ -70,7 +74,7 @@ export default function App() {
           </div>
         )}
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/feed" element={<SongGenerate />} />
           <Route path="/forum" element={<Forum />} />
         </Routes>

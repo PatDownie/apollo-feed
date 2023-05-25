@@ -2,9 +2,13 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Forum.css";
+import ForumColumn from "../components/ForumColumn";
 
 export default function Forum() {
   const [forum, setForum] = useState([]);
+  const [forumColumn1, setForumColumn1] = useState([]);
+  const [forumColumn2, setForumColumn2] = useState([]);
+  const [forumColumn3, setForumColumn3] = useState([]);
 
   useEffect(() => {
     getForum();
@@ -13,29 +17,24 @@ export default function Forum() {
   async function getForum() {
     const API = "http://localhost:8081/forum";
     const res = await axios.get(API);
-    setForum(res.data);
-    console.log(res.data);
+    const forumArray = res.data.reverse();
+    const col1Arr = forumArray.filter((_, index) => index % 3 === 0);
+    const col2Arr = forumArray.filter((_, index) => (index - 1) % 3 === 0);
+    const col3Arr = forumArray.filter((_, index) => (index - 2) % 3 === 0);
+    setForum(forumArray);
+    setForumColumn1(col1Arr);
+    setForumColumn2(col2Arr);
+    setForumColumn3(col3Arr);
   }
 
   return (
     <div className="whole-forum">
-      {forum.map((forumpost) => {
-        return (
-          <div className="forum-post" key={forumpost._id}>
-            <div className="post-header">
-              <img src={forumpost.album_art} alt={forumpost.title} />
-              <div className="post-header-text">
-                <p>
-                  <span className="username">{forumpost.poster_name}</span> has listened to {forumpost.title} by {forumpost.artist}
-                </p>
-              </div>
-            </div>
-            <div className="post-body">
-              <p>"{forumpost.forum_post}"</p>
-            </div>
-          </div>
-        );
-      })}
+      <ForumColumn className={"mobile"} forum={forum} />
+      <div className="desktop-forum">
+        <ForumColumn className={"desktop 1"} forum={forumColumn1} />
+        <ForumColumn className={"desktop 2"} forum={forumColumn2} />
+        <ForumColumn className={"desktop 3"} forum={forumColumn3} />
+      </div>
     </div>
   );
 }

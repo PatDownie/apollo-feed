@@ -1,6 +1,10 @@
 .whole-forum {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+}
+
+.desktop {
+  display: none;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap");
@@ -8,7 +12,7 @@
 .forum-post {
   display: flex;
   flex-direction: column;
-  margin: 15px;
+  margin: 16px 8px;
   background-color: #ced3dc;
   padding: 10px;
   border-radius: 10px;
@@ -21,6 +25,8 @@
 
 .post-header img {
   width: 30%;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .post-header-text {
@@ -43,4 +49,24 @@
 .username {
   font-size: 1.2rem;
   font-weight: 600;
+}
+
+@media (min-width: 750px) {
+  .mobile {
+    display: none;
+  }
+  .desktop {
+    display: inline-block;
+  }
+  .desktop-forum {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 1500px;
+    padding: 0 8px;
+    margin: 0 auto;
+  }
+  .forum-column {
+    width: 33.3%;
+  }
 }

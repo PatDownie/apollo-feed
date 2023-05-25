@@ -57,7 +57,6 @@ export default function SongGenerate() {
         <button className="button" onClick={getSong}>
           Show me another Song
         </button>
-        <button className="help-button">Need help?</button>
       </div>
       {/* <div className="advert-container">
         <img src={advert} onClick={play1} />

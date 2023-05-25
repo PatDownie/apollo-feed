@@ -11,8 +11,15 @@ import forumicon from "./images/forum.png";
 import chrisclip from "./images/chrisClippy.png";
 import errorSong from "./audio/myError.wav";
 import catchphrase from "./audio/uhm.mp3";
+import { useState } from "react";
 
 export default function App() {
+  const [helper, sethelper] = useState(false);
+
+  function helpToggle() {
+    sethelper(!helper);
+  }
+
   function playSong() {
     new Audio(errorSong).play();
   }
@@ -24,31 +31,36 @@ export default function App() {
     <BrowserRouter>
       <div className="App">
         <header>
-          <img src={logo} />
+          <img src={logo} alt="logo" />
           <div className="header-container">
             <h1>Apollo Feed</h1>
             <ul className="nav-container">
               <li>
                 <NavLink to={`/home`}>
-                  <img src={homeicon}></img>
+                  <img src={homeicon} alt="home logo"></img>
                 </NavLink>
               </li>
               <li>
                 <NavLink to={`/feed`}>
-                  <img src={feedicon}></img>
+                  <img src={feedicon} alt="feed logo"></img>
                 </NavLink>
               </li>
               <li>
                 <NavLink to={`/forum`}>
-                  <img src={forumicon}></img>
+                  <img src={forumicon} alt="forum logo"></img>
                 </NavLink>
               </li>
             </ul>
           </div>
         </header>
-        <div className="helper-container">
-          <div>
-            <img src={chrisclip} />
+        <div>
+          <button className="help-button" onClick={helpToggle}>
+            Need help?
+          </button>
+        </div>
+        {helper && (
+          <div className="helper-container">
+            <img src={chrisclip} alt="chris as clippy" />
             <button id="btn1" onClick={playCatch}>
               Can you help?
             </button>
@@ -56,7 +68,7 @@ export default function App() {
               Give me a song
             </button>
           </div>
-        </div>
+        )}
         <Routes>
           <Route path="/home" element={<Home />} />
           <Route path="/feed" element={<SongGenerate />} />

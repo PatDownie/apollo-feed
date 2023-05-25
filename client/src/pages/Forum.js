@@ -15,7 +15,7 @@ export default function Forum() {
   }, []);
 
   async function getForum() {
-    const API = "http://localhost:8081/forum";
+    const API = "https://apollo-feed.onrender.com/forum";
     const res = await axios.get(API);
     const forumArray = res.data.reverse();
     const col1Arr = forumArray.filter((_, index) => index % 3 === 0);

@@ -23,7 +23,7 @@ export default function SongGenerate() {
   async function getSong() {
     setSongButtonText("Fetching fresh jams");
     setSongButtonClass("loading");
-    const API = "http://localhost:8081/song";
+    const API = "https://apollo-feed.onrender.com/song";
     const res = await axios.get(API);
     setSongButtonText("Find me a song!");
     setSongButtonClass("normal");
@@ -37,7 +37,7 @@ export default function SongGenerate() {
     event.preventDefault();
     if (form.poster_name && form.forum_post) {
       console.log(form);
-      const API = "http://localhost:8081/forum";
+      const API = "https://apollo-feed.onrender.com/forum";
       await axios.post(API, form);
     }
   }

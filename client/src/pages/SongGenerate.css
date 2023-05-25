@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   background-color: #3a6274;
-  margin: 1rem;
+  margin: 1rem 1rem 0 1rem;
   border-radius: 25px;
 }
 
@@ -21,6 +21,7 @@
 .song-container img {
   width: 40%;
   flex-shrink: 0;
+  object-fit: contain;
 }
 
 .songInfo {
@@ -64,12 +65,13 @@ textarea {
   font-size: 1rem;
   border: none;
   border-radius: 1.5rem;
-  height: 3rem;
   width: 50%;
   align-self: center;
   background-color: #f1ca3b;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  padding: 1rem 0;
 }
-
 
 .help-button {
   color: #f6f9fa;
@@ -157,6 +159,5 @@ textarea {
     margin: 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
   }
 }

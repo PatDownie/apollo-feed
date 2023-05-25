@@ -80,7 +80,7 @@ h1 {
 
 .helper-container {
   position: fixed;
-  top: 22%;
+  bottom: 20px;
   right: 0;
   width: 500px;
   height: 520px;
@@ -117,7 +117,7 @@ h1 {
   }
 }
 
-.helper-container button {
+.helper-container .clippy-button {
   font-weight: 500;
   font-size: 1rem;
   border: none;
@@ -195,7 +195,6 @@ h1 {
 @media (max-width: 750px) {
   .helper-container {
     position: fixed;
-    top: 22%;
     right: 0;
     width: 100vw;
   }

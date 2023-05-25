@@ -9,7 +9,11 @@ export default function Home() {
       <p>You will be able to recieve a random song each time and be able to see what other people thought of their random songs too!</p>
       <p>Created by Patrick and Ross</p>
       <a href="/feed">
-        <button className="button">Show me a song!</button>
+        <button className="home-page-button">Show me a song!</button>
+      </a>
+      <p>Maintainance of this site is financially supported by our generous business partners</p>
+      <a href="/sponsors">
+        <button className="home-page-button">Click to view sponsors</button>
       </a>
     </div>
   );

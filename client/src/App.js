@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./pages/Home";
 import SongGenerate from "./pages/SongGenerate";
 import Forum from "./pages/Forum";
+import Sponsors from "./pages/Sponsors";
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import "./App.css";
 import logo from "./images/apollo-feed-placeholder.png";
@@ -58,7 +59,7 @@ export default function App() {
           </div>
         </header>
         <div id="help-button" onClick={helpToggle}>
-          Do you Need help?
+          Do you need help?
         </div>
         {helper && (
           <div className="helper-container">
@@ -77,6 +78,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/feed" element={<SongGenerate />} />
           <Route path="/forum" element={<Forum />} />
+          <Route path="/sponsors" element={<Sponsors />} />
         </Routes>
       </div>
     </BrowserRouter>

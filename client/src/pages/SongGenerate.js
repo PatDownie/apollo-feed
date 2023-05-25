@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
 import "./SongGenerate.css";
-import advert from "../images/pillsAD.png";
-import chrispills from "../audio/dmePills.mp3";
 
 export default function SongGenerate() {
   const [song, setSong] = useState([]);
   const [displaySong, setDisplaySong] = useState(false);
   const [songButtonText, setSongButtonText] = useState("Find me a song!");
   const [songButtonClass, setSongButtonClass] = useState("normal");
+  const [forumButtonActive, setForumButtonActive] = useState(true);
+  const [forumButtonText, setForumButtonText] = useState("Post to forum");
 
   const [form, setForm] = useState({
     song_id: NaN,
@@ -30,15 +30,27 @@ export default function SongGenerate() {
     setDisplaySong(true);
     setSong(res.data);
     setForm({ ...form, song_id: res.data.song_id, title: res.data.title, artist: res.data.artist, release_date: res.data.release_date, album_art: res.data.album_art });
-    console.log(res.data);
+    setForumButtonActive(true);
+    setForumButtonText("Post to Forum");
   }
 
   async function postForum(event) {
     event.preventDefault();
-    if (form.poster_name && form.forum_post) {
-      console.log(form);
+    if (form.poster_name && form.forum_post && form.title && forumButtonActive === true) {
+      setForumButtonActive(false);
+      setForumButtonText("Posting...");
       const API = "https://apollo-feed.onrender.com/forum";
       await axios.post(API, form);
+      setForm({
+        song_id: NaN,
+        title: "",
+        artist: "",
+        release_date: "",
+        album_art: "",
+        poster_name: "",
+        forum_post: "",
+      });
+      setForumButtonText("Posted!");
     }
   }
 
@@ -63,7 +75,7 @@ export default function SongGenerate() {
             <form onSubmit={postForum}>
               <textarea name="forum_post" type="text" placeholder="What did you think of this song?" onChange={handleChange} value={form.forum_post} maxLength="700" rows="5" />
               <input name="poster_name" type="text" placeholder="Whats your name?" onChange={handleChange} value={form.poster_name} maxLength="50" />
-              <input className="button" type="submit" value="Post to forum" />
+              <input className="button" type="submit" value={forumButtonText} />
             </form>
           </div>
         </div>

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import "./SongGenerate.css";
+import advert from "../images/pillsAD.png";
+import chrispills from "../audio/dmePills.mp3";
 
 export default function SongGenerate() {
   const [song, setSong] = useState([]);
@@ -71,6 +73,9 @@ export default function SongGenerate() {
           {songButtonText}
         </button>
       </div>
+      {/* <div className="advert-container">
+        <img src={advert} onClick={play1} />
+      </div> */}
     </div>
   );
 }

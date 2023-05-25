@@ -55,7 +55,7 @@ export default function App() {
         </header>
         <div>
           <button className="help-button" onClick={helpToggle}>
-            Need help?
+            DO you Need help?
           </button>
         </div>
         {helper && (

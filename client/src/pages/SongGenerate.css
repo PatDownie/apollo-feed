@@ -33,12 +33,59 @@
   justify-content: space-around;
 }
 
+.song-and-listen-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-button-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+}
+
+.youtube-button {
+  color: #f6f9fa;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 1.5rem;
+  align-self: center;
+  background-color: #f01f1f;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Kanit", sans-serif;
+}
+.youtube-button:hover {
+  background-color: #e97c7c;
+}
+
+.spotify-button {
+  color: #f6f9fa;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 100%;
+  border-radius: 1.5rem;
+  align-self: center;
+  background-color: #1db954;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Kanit", sans-serif;
+}
+.spotify-button:hover {
+  background-color: #82b995;
+}
+
 h2 {
   font-weight: 600;
 }
 
 .form-container {
-  margin: 15px;
+  margin: 0px 15px 15px 15px;
   border-width: 3px;
   border-style: dashed;
   border-color: #f1ca3b;
@@ -138,6 +185,17 @@ textarea {
     margin: 2rem;
     border-radius: 25px;
   }
+  .search-button-container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 15px;
+  }
+  .spotify-button {
+    margin-left: 0.5rem;
+  }
+  .youtube-button {
+    margin-right: 0.5rem;
+  }
   .form-container {
     min-width: 300px;
     width: 100%;
@@ -152,7 +210,7 @@ textarea {
     justify-content: center;
   }
   textarea {
-    height: 150px;
+    height: 100%;
   }
   .show-song-button-container {
     height: 100px;

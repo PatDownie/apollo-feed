@@ -62,12 +62,22 @@ export default function SongGenerate() {
     <div className="feed-body-container">
       {displaySong && (
         <div className="song-and-form-container">
-          <div className="song-container">
-            <img src={song.album_art} alt={song.title} />
-            <div className="songInfo">
-              <h2>{song.title}</h2>
-              <p>By: {song.artist}</p>
-              <p>Released: {song.release_date}</p>
+          <div className="song-and-listen-buttons-container">
+            <div className="song-container">
+              <img src={song.album_art} alt={song.title} />
+              <div className="songInfo">
+                <h2>{song.title}</h2>
+                <p>By: {song.artist}</p>
+                <p>Released: {song.release_date}</p>
+              </div>
+            </div>
+            <div className="search-button-container">
+              <a className="youtube-button" href={`https://www.youtube.com/results?search_query=${form.title}+${form.artist}`} target="_blank" rel="noopener">
+                Search on youtube
+              </a>
+              <a className="spotify-button" href={`https://open.spotify.com/search/${form.title}%20${form.artist}`} target="_blank" rel="noopener">
+                Search on spotify
+              </a>
             </div>
           </div>
 

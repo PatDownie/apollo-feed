@@ -72,12 +72,12 @@ export default function SongGenerate() {
               </div>
             </div>
             <div className="search-button-container">
-              <a className="youtube-button" href={`https://www.youtube.com/results?search_query=${form.title}+${form.artist}`} target="_blank" rel="noopener">
+              <a className="youtube-button" href={`https://www.youtube.com/results?search_query=${form.title}+${form.artist}`} target="_blank" rel="noopener noreferrer">
                 Search on youtube
               </a>
-              <a className="spotify-button" href={`https://open.spotify.com/search/${form.title}%20${form.artist}`} target="_blank" rel="noopener">
+              {/* <a className="spotify-button" href={`https://open.spotify.com/search/${form.title}%20${form.artist}`} target="_blank" rel="noopener noreferrer">
                 Search on spotify
-              </a>
+              </a> */}
             </div>
           </div>
 

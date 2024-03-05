@@ -190,12 +190,12 @@ textarea {
     flex-direction: row;
     margin: 0 15px;
   }
-  .spotify-button {
+  /* .spotify-button {
     margin-left: 0.5rem;
-  }
-  .youtube-button {
+  } */
+  /* .youtube-button {
     margin-right: 0.5rem;
-  }
+  } */
   .form-container {
     min-width: 300px;
     width: 100%;
